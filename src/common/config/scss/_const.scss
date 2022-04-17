@@ -1,0 +1,15 @@
+$pcWidth: 1024px;
+$tabletWidth: 768px;
+
+body {
+  border-top: none;
+  #yellow_border {
+    border: solid 1px #dec16b;
+  }
+}
+
+@media screen and  (max-width: 768px) {
+  body {
+    border: none;
+  }
+}

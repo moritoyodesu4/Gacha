@@ -1,0 +1,37 @@
+$notoSans: "Noto Sans JP", sans-serif;
+$notoSerif: "Noto Serif JP", sans-serif;
+$vdlGothic: "VDL-V7Gothic";
+$sourceHan: "Source Han Sans JP";
+$coHead: "Co Headline";
+$kozukaM: "KozGoPr6N-Medium";
+$kozukaR: "KozGoPr6N-Regular";
+$kozukaB: "KozGoPr6N-Bold";
+$kozukaH: "KozGoPr6N-Heavy";
+@font-face {
+  font-family: $vdlGothic;
+  src: url('/fonts/VDL-V7Gothic.ttf');
+}
+@font-face {
+  font-family: $sourceHan;
+  src: url('/fonts/Source Han Sans JP.otf');
+}
+@font-face {
+  font-family: $coHead;
+  src: url('/fonts/Co_Headline_Bold.ttf');
+}
+@font-face {
+  font-family: $kozukaM;
+  src: url('/fonts/KozGoPr6N-Medium.otf');
+}
+@font-face {
+  font-family: $kozukaR;
+  src: url('/fonts/KozGoPr6N-Regular.otf');
+}
+@font-face {
+  font-family: $kozukaB;
+  src: url('/fonts/KozGoPr6N-Bold.otf');
+}
+@font-face {
+  font-family: $kozukaH;
+  src: url('/fonts/KozGoPr6N-Heavy.otf');
+}

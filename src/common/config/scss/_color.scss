@@ -1,0 +1,82 @@
+$transparent: transparent;
+$white: #FFFFFF;
+$black: #000000;
+$yellow: #dec16b;
+$gold: #FFE678;
+$red: #EB2929;
+$brown: #463200;
+$gray: #707070;
+$lightGray: #DDDDDD;
+$disabledGray: #CCCCCC;
+$deepGray: #454239;
+$blue: #285ABE;
+
+$headerBlack: rgba(0, 0, 0, 0.7);
+
+$titleShadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+$bannerShadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+
+$shadowBlack_50: rgba(0, 0, 0, 0.5);
+$shadowBlack_60: rgba(0, 0, 0, 0.6);
+$shadowBlack_65: rgba(0, 0, 0, 0.65);
+
+$goldGradient: linear-gradient(
+  115deg,
+  #645028 0%,
+  #F0BE32 16%,
+  #FFDC64 22%,
+  #F0BE32 39%,
+  #F0BE32 53%,
+  #966E14 69%,
+  #F0BE32 79%,
+  #FFDC64 91%,
+  #F0BE32 100%
+);
+
+$silverGradient: linear-gradient(
+  113deg,
+  #506478 0%,
+  #96AABE 16%,
+  #DCF0FF 22%,
+  #C8D2DC 39%,
+  #96AABE 53%,
+  #506478 69%,
+  #96AABE 79%,
+  #DCF0FF 91%,
+  #96AABE 100%
+);
+
+$redGradient: linear-gradient(
+  #940202 0%,
+  #e04545 50%,
+  #940202 100%
+);
+
+$grayGradient: linear-gradient(
+  180deg,
+  #464646 0%,
+  #1E1E1E 100%
+);
+
+$blackOutline:
+1px 1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+-1px -1px 0 #000;
+
+$redShadow:
+0px 0 150px rgba(255, 255, 255, 1),
+0px 0 150px rgba(255, 0, 0, 1),
+0px 0 125px rgba(255, 0, 0, 1),
+0px 0 100px rgba(255, 0, 0, 1);
+
+$goldShadow:
+0px 0 150px rgba(255, 255, 255, 1),
+0px 0 150px rgba(255, 237, 0, 1),
+0px 0 125px rgba(255, 237, 0, 1),
+0px 0 100px rgba(255, 237, 0, 1);
+$whiteShadow:
+0px 0 150px rgba(255, 255, 255, 1),
+0px 0 150px rgba(255, 255, 255, 1),
+0px 0 125px rgba(255, 255, 255, 1),
+0px 0 100px rgba(255, 255, 255, 1);
