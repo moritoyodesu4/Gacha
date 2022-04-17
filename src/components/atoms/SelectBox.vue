@@ -70,7 +70,7 @@ export default {
     height: 40px;
     text-shadow: 0 1px white;
     background: transparent !important;
-    border: solid 1px $deepGray;
+    border: solid 2px $deepGray;
     border-radius: 0;
     outline: none;
     cursor: pointer;

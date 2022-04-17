@@ -83,6 +83,7 @@ export default {
 .humberger_menu {
   padding: 10px;
   background-color: $deepGray;
+  position: fixed;
   top: 12px;
   right: 8px;
   z-index: 10000;
@@ -104,7 +105,7 @@ export default {
 .scroll_area {
   overflow-y: auto;
   position: fixed;
-  right: calc((100vw - min(100vw, 378px))/2 - 340px);
+  right: -340px;
   top: 0;
   height: 100%;
   overflow-y: auto;

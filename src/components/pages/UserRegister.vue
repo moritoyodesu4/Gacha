@@ -1,16 +1,14 @@
 <template>
   <BaseTemplate>
     <div class="user-register">
-      <PageTitle title="会員登録" />
-      <span class="text description">以下に登録情報をご入力ください。</span>
-      <LabelInput class="label-input" labelText="氏名">
+      <LabelInput class="label-input" labelText="お名前">
         <div class="user-name">
           <div class="last-name-container">
             <TextBox
               class="text-box last-name"
               inputType="text"
               :value="lastName"
-              placeholder="姓"
+              placeholder=""
               @handleTextInput="inputLastName"
             />
             <ErrorMessage
@@ -19,12 +17,16 @@
               :message="errorMessageLastName"
             />
           </div>
-          <div class="first-name-container">
+        </div>
+      </LabelInput>
+      <LabelInput class="label-input">
+        <div class="user-name first-name">
+          <div class="last-name-container">
             <TextBox
               class="text-box first-name"
               inputType="text"
               :value="firstName"
-              placeholder="名"
+              placeholder="遊戯"
               @handleTextInput="inputFirstName"
             />
             <ErrorMessage
@@ -34,6 +36,84 @@
             />
           </div>
         </div>
+      </LabelInput>
+      <LabelInput class="label-input" labelText="お名前カナ">
+        <div class="user-name">
+          <div class="last-name-container">
+            <TextBox
+              class="text-box last-name"
+              inputType="text"
+              :value="lastName"
+              placeholder="ブトウ"
+              @handleTextInput="inputLastName"
+            />
+            <ErrorMessage
+              v-if="errorMessageLastName"
+              class="error-message"
+              :message="errorMessageLastName"
+            />
+          </div>
+        </div>
+      </LabelInput>
+      <LabelInput class="label-input">
+        <div class="user-name first-name">
+          <div class="last-name-container">
+            <TextBox
+              class="text-box first-name"
+              inputType="text"
+              :value="firstName"
+              placeholder="ユウギ"
+              @handleTextInput="inputFirstName"
+            />
+            <ErrorMessage
+              v-if="errorMessageFirstName"
+              class="error-message"
+              :message="errorMessageFirstName"
+            />
+          </div>
+        </div>
+      </LabelInput>
+       <LabelInput class="label-input" labelText="メールアドレス" annotation="@yahooや@gmailなどを推奨します">
+        <TextBox
+          class="text-box mail"
+          inputType="mail"
+          :value="mail"
+          placeholder="example@gamil.com"
+          @handleTextInput="inputMail"
+        />
+        <ErrorMessage
+          v-if="errorMessageMail"
+          class="error-message"
+          :message="errorMessageMail"
+        />
+      </LabelInput>
+      <LabelInput class="label-input" labelText="パスワード">
+        <TextBox
+          class="text-box password"
+          inputType="password"
+          :value="password"
+          placeholder="半角英数字6文字以上20文字以内"
+          @handleTextInput="inputPassword"
+        />
+        <ErrorMessage
+          v-if="errorMessagePassword"
+          class="error-message"
+          :message="errorMessagePassword"
+        />
+      </LabelInput>
+      <LabelInput class="label-input" labelText="パスワード再入力">
+        <TextBox
+          class="text-box password confirm"
+          inputType="password"
+          :value="confirmPass"
+          placeholder="半角英数字6文字以上20文字以内"
+          @handleTextInput="inputConfirmPass"
+        />
+        <ErrorMessage
+          v-if="errorMessagePassword"
+          class="error-message"
+          :message="errorMessagePassword"
+        />
       </LabelInput>
       <LabelInput class="label-input" labelText="電話番号" annotation="「−」ハイフンは不要です">
         <TextBox
@@ -47,20 +127,6 @@
           v-if="errorMessageTel"
           class="error-message"
           :message="errorMessageTel"
-        />
-      </LabelInput>
-      <LabelInput class="label-input" labelText="メールアドレス" annotation="@yahooや@gmailなどを推奨します">
-        <TextBox
-          class="text-box mail"
-          inputType="mail"
-          :value="mail"
-          placeholder="example@gamil.com"
-          @handleTextInput="inputMail"
-        />
-        <ErrorMessage
-          v-if="errorMessageMail"
-          class="error-message"
-          :message="errorMessageMail"
         />
       </LabelInput>
       <div class="flex_box">
@@ -122,57 +188,11 @@
           :message="errorMessageAddress"
         />
       </LabelInput>
-      <LabelInput
-        class="label-input"
-        labelText="建物名"
-        annotation="配送トラブル防止のため、該当する場合は略さずに必ず記載して下さい。"
-      >
-        <TextBox
-          class="text-box address"
-          inputType="text"
-          :value="building"
-          placeholder="建物名を入力してください"
-          @handleTextInput="inputBuilding"
+      <CommonButton
+          class="bg-red font-vdl btnConfirm"
+          text="次へ"
+          @handleBtnClick="goToConfirmUserRegister"
         />
-        <ErrorMessage
-          v-if="errorMessageBuilding"
-          class="error-message"
-          :message="errorMessageBuilding"
-        />
-      </LabelInput>
-      <LabelInput class="label-input" labelText="パスワード">
-        <TextBox
-          class="text-box password"
-          inputType="password"
-          :value="password"
-          placeholder="半角英数字6文字以上20文字以内"
-          @handleTextInput="inputPassword"
-        />
-        <ErrorMessage
-          v-if="errorMessagePassword"
-          class="error-message"
-          :message="errorMessagePassword"
-        />
-      </LabelInput>
-      <LabelInput class="label-input" labelText="パスワード確認用">
-        <TextBox
-          class="text-box password confirm"
-          inputType="password"
-          :value="confirmPass"
-          placeholder="半角英数字6文字以上20文字以内"
-          @handleTextInput="inputConfirmPass"
-        />
-        <ErrorMessage
-          v-if="errorMessagePassword"
-          class="error-message"
-          :message="errorMessagePassword"
-        />
-      </LabelInput>
-      <BlackGradationButton
-        class="square-button"
-        text="入力内容を確認する"
-        @handleSquareBtnClick="goToConfirmUserRegister"
-      />
     </div>
   </BaseTemplate>
 </template>
@@ -185,8 +205,7 @@ import TextBox from '@/components/atoms/TextBox.vue';
 import SelectBox from '@/components/atoms/SelectBox.vue';
 import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
 import LabelInput from '@/components/molecules/LabelInput.vue';
-import PageTitle from '@/components/atoms/PageTitle.vue';
-import BlackGradationButton from '@/components/atoms/BlackGradationButton.vue';
+import CommonButton from '@/components/atoms/CommonButton.vue';
 
 export default {
   name: 'UserRegister',
@@ -197,8 +216,7 @@ export default {
     SelectBox,
     ErrorMessage,
     LabelInput,
-    PageTitle,
-    BlackGradationButton,
+    CommonButton,
   },
 
   data: () => ({
@@ -361,12 +379,15 @@ export default {
 
 <style lang="scss" scoped>
 .user-register{
-  width: 100%;
-  max-width: 680px;
+  width: 378px;
+  max-width: 100%;
   min-height: 100%;
-  padding: 50px 30px;
-  margin: 0px auto;
+  padding: 10px 20px;
+  margin: 40px auto 10px;
   text-align: center;
+  .first-name {
+    margin-top: -17px !important;
+  }
   .description{
     display: inline-block;
     height: 20px;
@@ -382,7 +403,6 @@ export default {
     .user-name{
       display: flex;
       width: 100%;
-      margin-top: 10px;
       .last-name-container{
         flex: 1 1 150px;
         min-width: 0;
@@ -397,7 +417,6 @@ export default {
       }
     }
     .text-box{
-      margin-top: 10px;
       width: 100%;
       height: 40px;
     }
@@ -428,6 +447,10 @@ export default {
     }
   }
 }
+.btnConfirm {
+    width: 160px;
+    margin: 50px auto;
+  }
 @media screen and  (max-width: $tabletWidth) {
   .flex_box{
     width: 100%;

@@ -1,72 +1,85 @@
 <template>
   <BaseTemplate :currentUser="currentUser" :isTop="true">
-    <div
-      v-if="packList"
-      class="top"
-    >
-      <div class="product-list">
-        <ProductBanner
-          v-for="(packItem) in packList.list" :key="packItem.id"
-          class="banner"
-          :packItem="packItem"
-          :currentUser="currentUser"
-          @handleBannerClick="goToProductDetail"
-          @handleLoginClick="goToLogin"
-        />
+    <div class="top-sp">
+      <div class="logo">
+          <img src="/img/mobile/logo.png" width="100%" />
       </div>
-      <div class="double-flex">
-        <ShadowButton
-          class="shadow-button pc"
-          text="特定商取引法に基づく表記"
-          @handleShadowBtnClick="goToSpecificCommerce"
-        />
-        <ShadowButton
-          class="shadow-button sp"
-          text="特定商取引法"
-          @handleShadowBtnClick="goToSpecificCommerce"
-        />
-        <ShadowButton
-          class="shadow-button"
-          text="利用規約"
-          @handleShadowBtnClick="goToTermsOfService"
-        />
-        <ShadowButton
-          class="shadow-button pc"
-          text="個人情報保護ポリシー"
-          @handleShadowBtnClick="goToPrivacyProtection"
-        />
-        <ShadowButton
-          class="shadow-button sp"
-          text="個人情報保護"
-          @handleShadowBtnClick="goToPrivacyProtection"
-        />
-        <ShadowButton
-          class="shadow-button"
+      <div class="button-container">
+          <CommonButton
+            class="bg-red font-vdl"
+            text="ログイン"
+            @handleBtnClick="goToLogin"
+          />
+          <CommonButton
+            class="bg-black font-vdl"
+            text="会員登録"
+            @handleBtnClick="goToRegister"
+          />
+      </div>
+      <div class="notice-container">
+          <p class="notice">会員登録いただくと、ここに会員ID並びにバーコードが表示されます。<br>店舗での買い物や買取などがスムーズにお得にご利用いただけます。</p>
+          <p class="notice">Gacha24の会員様は、自動で会員情報を同期しておりますので、<br>登録なしに、ログインいただけます。</p>
+      </div>
+      <div class="shop-container">
+          <ImageButton
+              image_url='/img/mobile/ic_minny_gacha.png'
+              text='Gacha'
+              class="font-co"
+          />
+          <ImageButton
+              image_url='/img/mobile/ic_gacha_24.png'
+          />
+          <ImageButton
+              image_url='/img/mobile/ic_shop.png'
+              text='通  販'
+              class="font-han"
+          />
+      </div>
+      <div class="footer-menu-container">
+        <CommonButton
+          class="bg-white font-han"
           text="ご利用ガイド"
-          @handleShadowBtnClick="goToUserGuide"
+          @handleBtnClick="goToSpecificCommerce"
+        />
+        <CommonButton
+          class="bg-white font-han"
+          text="利用規約"
+          style="width: 45%"
+          @handleBtnClick="goToTermsOfService"
         />
       </div>
-      <div class="toiawase">
-        <div>お問い合わせ先</div>
-        <div>gacha24@iranoan.com</div>
+      <div class="footer-menu-container">
+        <CommonButton
+          class="bg-white font-han"
+          text="個人情報保護ポリシー"
+          style="font-size: 13px; padding: 8px 10px"
+          @handleBtnClick="goToPrivacyProtection"
+        />
+        <CommonButton
+          class="bg-white font-han"
+          text="特定商取引法"
+          @handleBtnClick="goToUserGuide"
+        />
       </div>
-    </div>
+
+   </div>
+
   </BaseTemplate>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import BaseTemplate from '@/components/templates/BaseTemplate.vue';
-import ProductBanner from '@/components/molecules/ProductBanner.vue';
-import ShadowButton from '@/components/molecules/ShadowButton.vue';
+import CommonButton from '@/components/atoms/CommonButton.vue';
+import ImageButton from '@/components/atoms/ImageButton.vue';
 
 export default {
   name: 'Top',
 
   components: {
     BaseTemplate,
-    ProductBanner,
-    ShadowButton,
+    CommonButton,
+    ImageButton,
   },
 
   data: () => ({
@@ -107,33 +120,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top{
-  width: 100%;
-  max-width: 1200px;
+.top-sp{
+  background-image: url('/img/mobile/bg.png');
+  width: 375px;
+  max-width: 100%;
   min-height: 100%;
   padding: 50px 20px 32px 20px;
   margin: 0 auto;
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
+  height: 100vh;
+  .logo {
+    width: 90px;
+    margin: 50px auto;
   }
-  .banner{
-    margin-top: 40px;
+  .button-container {
+    width: 160px;
+    margin: 50px auto 20px;
   }
-  .double-flex {
-    display: flex;
+  .notice-container {
+    width: 320px;
+    margin: 30px auto 50px;
   }
-  .shadow-button{
-    min-width: 200px;
-    max-width: 48%;
-    width: 100%;
-    height: 40px;
-    margin: 20px auto 0;
+  .notice {
+    text-align: left;
+    font-size: 10px;
+    color: #E8102B;
+    font-family: $kozukaM;
+    margin-bottom: 0;
   }
-  .toiawase {
-    text-align: center;
-    color: $deepGray;
-    margin-top: 20px;
+  .shop-container {
+    display: inline-flex;
+    margin-bottom: 15px;
+  }
+  .footer-menu-container {
+    display: inline-flex;
+    margin-bottom: 5px;
+  }
+  .footer-menu-container a {
+    min-width: 160px !important;
+    max-width: 160px !important;
+    max-height: 45px;
+    margin: 5px;
   }
   .pc {
     display: block;

@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div v-if-not="isTop">
+    <div class="sp_base_menu" :class="{top_header:isTop}">
+      <MainLogo />
+      <SpMenu :currentUser="currentUser"></SpMenu>
+    </div>
     <div class='common-header' :class="{second_header:isTop}">
-      <div class="sp_base_menu" :class="{top_header:isTop}">
-        <SpMenu :currentUser="currentUser"></SpMenu>
-      </div>
       <div class='name_area'>
         <div class="name" v-if="currentUser.is_login == '1'">
           {{currentUser.last_name}} {{currentUser.first_name}}さん
@@ -14,11 +15,17 @@
         </div>
         <a class="login" v-if="currentUser.is_login == '0'" @click="page('/login')">ログイン</a>
       </div>
+      <div class="menu_area">
+        <a class="mypage" @click="page('/my-page')">マイページ</a>
+        <a class="point_buy" @click="page('/buy-point')">ポイント購入</a>
+        <a class="item_history" @click="page('/buy-product-history')">商品購入履歴</a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import MainLogo from '@/components/atoms/MainLogo.vue';
 import SpMenu from '@/components/molecules/SpMenu.vue';
 
 export default {
@@ -50,6 +57,7 @@ export default {
   },
 
   components: {
+    MainLogo,
     SpMenu,
   },
 
@@ -107,6 +115,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: calc(100% - 16px);
   height: 58px;
   background-color: $deepGray;
   padding: 0 10px 0 15px;
@@ -215,7 +224,6 @@ export default {
     align-items: center;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 10006;
   }
   .common-header {
@@ -223,7 +231,7 @@ export default {
     top: 40px;
     width: 100%;
     border-top: solid 1px $yellow;
-    height: auto;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;

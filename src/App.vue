@@ -15,7 +15,7 @@ export default {
   },
 
   mounted() {
-    // document.oncontextmenu = () => false;
+    document.oncontextmenu = () => true;
   },
 
   watch: {

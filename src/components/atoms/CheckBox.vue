@@ -33,13 +33,11 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: $white;
-  border-radius: 3px;
-  border: solid 1px $deepGray;
+  border: solid 2px #2a2a2a;
   .fa-check{
-    color: $lightGray;
+    color: #2a2a2a;
   }
   &.active{
-    background: $redGradient;
     .fa-check{
       color: $white;
     }

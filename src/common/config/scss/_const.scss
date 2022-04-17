@@ -2,10 +2,21 @@ $pcWidth: 1024px;
 $tabletWidth: 768px;
 
 body {
+  border: solid 8px #454239;
   border-top: none;
   #yellow_border {
     border: solid 1px #dec16b;
   }
+  //&:after {
+  //  content: "";
+  //  position: absolute;
+  //  top: 3px;
+  //  left: 4px;
+  //  width: calc(100% - 8px);
+  //  border: solid 1px #dec16b;
+  //  bottom: 3px;
+  //  pointer-events: none;
+  //}
 }
 
 @media screen and  (max-width: 768px) {

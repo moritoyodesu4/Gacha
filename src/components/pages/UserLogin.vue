@@ -1,7 +1,9 @@
 <template>
-  <BaseTemplate :show_head="true">
+  <BaseTemplate>
     <div class="user-login" @keydown.enter="login" tabindex="0">
-      <PageTitle title="会員ログイン" />
+      <div class="logo">
+          <img src="/img/mobile/logo.png" width="100%" />
+      </div>
       <LabelInput
         class="label-input"
         labelText="メールアドレス"
@@ -58,24 +60,25 @@
         />
         <span class="text">次回以降入力を省略する</span>
       </div>
-      <BlackGradationButton
-        class="square-button login"
-        text="ログイン"
-        @handleSquareBtnClick="login"
-      />
-      <div class="forget-password">
-        <span class="text">パスワードをお忘れの場合は<a @click.stop="forgetPassword">こちら</a></span>
+      <div class="login-container">
+          <CommonButton
+            class="bg-red font-vdl"
+            text="ログインする"
+            @handleBtnClick="login"
+          />
+           <div class="forget-password">
+            <span class="text">パスワードをお忘れの場合は<a @click.stop="forgetPassword">こちら</a></span>
+          </div>
       </div>
       <div class="description">
-        <span class="text">HPで既に会員登録を頂いている方も、こちらをご利用</span>
-        <span class="text">いただく際は、新規会員登録が必須となります。</span>
+        <span class="text">HPで既に会員登録を頂いている方も、こちらをご利用いただく際は、新規会員登録が必須となります。</span>
         <span class="text">※HPでの会員登録情報と同じでも構いません。</span>
+         <CommonButton
+            class="bg-red font-vdl register"
+            text="会員登録"
+            @handleBtnClick="goToUserRegister"
+          />
       </div>
-      <CommonButton
-        class="bg-red font-vdl"
-        text="ログイン"
-        @handleSquareBtnClick="login"
-      />
     </div>
   </BaseTemplate>
 </template>
@@ -88,8 +91,6 @@ import TextBox from '@/components/atoms/TextBox.vue';
 import CheckBox from '@/components/atoms/CheckBox.vue';
 import CommonButton from '@/components/atoms/CommonButton.vue';
 import ErrorMessage from '@/components/atoms/ErrorMessage.vue';
-import BlackGradationButton from '@/components/atoms/BlackGradationButton.vue';
-import PageTitle from '@/components/atoms/PageTitle.vue';
 import LabelInput from '@/components/molecules/LabelInput.vue';
 
 export default {
@@ -99,11 +100,9 @@ export default {
     BaseTemplate,
     TextBox,
     CheckBox,
-    CommonButton,
     ErrorMessage,
-    BlackGradationButton,
-    PageTitle,
     LabelInput,
+    CommonButton,
   },
 
   data: () => ({
@@ -179,28 +178,16 @@ export default {
 
 <style lang="scss" scoped>
 .user-login{
-  width: 100%;
-  max-width: 680px;
+  width: 378px;
+  max-width: 90%;
   min-height: 100%;
   padding: 100px 20px 20px;
   margin: 0px auto;
   text-align: center;
   outline: none;
-  .login-title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .text{
-      height: 35px;
-      font-family: $notoSerif;
-      font-size: 24px;
-      font-weight: 500;
-      color: $white;
-    }
-    .logo{
-      width: 176px;
-      margin-top: 10px;
-    }
+  .logo {
+    width: 90px;
+    margin: 30px auto;
   }
   .label-password {
     margin-top: 20px;
@@ -208,6 +195,7 @@ export default {
   .text-box{
     width: 315px;
     margin: 0px auto;
+    border: 2px solid #2A2A2A;
     &.mail{
       width: 100%;
     }
@@ -229,6 +217,14 @@ export default {
       }
     }
   }
+  .login-container{
+    width: 240px;
+    margin: 50px auto 30px;
+    a {
+        width: 200px;
+        margin: 0 auto;
+    }
+  }
   .error-message{
     width: 315px;
     margin: 0px auto;
@@ -239,33 +235,30 @@ export default {
     align-items: center;
     margin: 20px auto 0px;
     .check-box{
-      width: 25px;
-      height: 25px;
+      width: 20px;
+      height: 20px;
     }
     .text{
       margin-left: 10px;
-      font-family: $notoSans;
-      font-size: 16px;
+      font-size: 13px;
       line-height: 1.8;
       color: $deepGray;
+      font-family: $vdlGothic;
+      font-weight: bold;
     }
-  }
-  .square-button{
-    width: 200px;
-    height: 50px;
-    margin: 40px auto 0px;
   }
   .forget-password{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto 0px;
+    margin: 10px auto;
     .text{
-      font-family: $notoSans;
+      font-family: $kozukaM;
       font-size: 14px;
       color: $deepGray;
       a {
         color: $red;
+        text-decoration: underline;
       }
     }
     .fa-angle-right{
@@ -281,11 +274,15 @@ export default {
     height: 66px;
     margin-top: 40px;
     .text{
-      font-family: $notoSans;
+      font-family: $kozukaM;
       font-size: 13px;
       line-height: 23.4px;
       color: $deepGray;
     }
+  }
+  a.register {
+    width: 200px;
+    margin: 20px auto;
   }
 }
 </style>

@@ -64,17 +64,17 @@ export default {
 .text-box{
   display: flex;
   width: 100%;
-  padding: 10px;
+  padding: 7px 10px;
   background-color: $white;
-  border: solid 1px $deepGray;
-  border-radius: 3px;
+  border: solid 2px #2a2a2a;
+  border-radius: 2px;
   &.readonly{
     background-color: $disabledGray;
   }
   .text{
     width: 100%;
     flex: 1 1 100%;
-    font-family: $notoSans;
+    font-family: $kozukaM;
     font-size: 14px;
     line-height: 20px;
     outline: none;

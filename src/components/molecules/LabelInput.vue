@@ -1,8 +1,7 @@
 <template>
   <div class="label-input">
     <div class="label">
-      <span class="text">{{labelText}}</span>
-      <span v-if="annotation" class="annotation">{{annotation}}</span>
+      <span class="text">{{labelText}}<span class="annotation">{{annotation}}</span></span>
     </div>
     <slot></slot>
   </div>
@@ -34,11 +33,14 @@ export default {
     font-size: 14px;
     line-height: 23.4px;
     color: $deepGray;
+    font-family: $vdlGothic;
+    font-weight: bold;
     .annotation{
       margin-left: 10px;
       font-size: 10px;
       line-height: 10px;
-      color: $blue;
+      color: $red;
+      font-family: $kozukaM;
     }
   }
 }

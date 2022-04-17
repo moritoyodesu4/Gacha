@@ -4,7 +4,7 @@
     :class="{'hide-base-bg-image': !isShowBaseContents, 'is_top': isTop}"
   >
     <CommonHeader
-      v-if="showHead"
+      v-if="isShowBaseContents"
       :availablePoint="availablePoint"
       :currentUser="currentUser"
       :isTop="isTop"
@@ -47,11 +47,7 @@ export default {
     },
     isTop: {
       type: Boolean,
-      default: true,
-    },
-    showHead: {
-      type: Boolean,
-      default: true,
+      default: false,
     },
   },
 
@@ -102,11 +98,11 @@ $footerHeight: 80px;
 
 .base-template{
   height: 100%;
+  background-color: #fff;
+  //background-image: url('/img/backimage.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  max-width: 378px;
-  margin: auto;
   &.hide-base-bg-image{
     height: 100%;
     background: $black;
